@@ -1,0 +1,227 @@
+@keyframes scaleAndCenter1 {
+  from {
+    transform: translate(0, 0) scale(1); /* 원래 위치와 크기 */
+  }
+  to {
+    transform: translate(50vw, 50vh) translate(-200px, -160px) scale(2); /* 중앙 이동과 확대 */
+  }
+}
+
+@keyframes reverseScaleAndCenter1 {
+  from {
+    transform: translate(50vw, 50vh) translate(-200px, -160px) scale(2); /* 확대 상태에서 시작 */
+  }
+  to {
+    transform: translate(0, 0) scale(1); /* 원래 위치로 돌아감 */
+  }
+}
+
+@keyframes scaleAndCenter2 {
+  from {
+    transform: translate(0, 0) scale(1); /* 원래 위치와 크기 */
+  }
+  to {
+    transform: translate(-50vw, 50vh) translate(160px, -240px) scale(2); /* 중앙 이동과 확대 */
+  }
+}
+
+@keyframes reverseScaleAndCenter2 {
+  from {
+    transform: translate(-50vw, 50vh) translate(160px, -240px) scale(2); /* 확대 상태에서 시작 */
+  }
+  to {
+    transform: translate(0, 0) scale(1); /* 원래 위치로 돌아감 */
+  }
+}
+
+@keyframes scaleAndCenter3 {
+  from {
+    transform: translate(0, 0) scale(1); /* 원래 위치와 크기 */
+  }
+  to {
+    transform: translate(50vw, -50vh) translate(-200px, 260px) scale(2); /* 중앙 이동과 확대 */
+  }
+}
+
+@keyframes reverseScaleAndCenter3 {
+  from {
+    transform: translate(50vw, -50vh) translate(-200px, 260px) scale(2); /* 확대 상태에서 시작 */
+  }
+  to {
+    transform: translate(0, 0) scale(1); /* 원래 위치로 돌아감 */
+  }
+}
+
+@keyframes scaleAndCenter4 {
+  from {
+    transform: translate(0, 0) scale(1); /* 원래 위치와 크기 */
+  }
+  to {
+    transform: translate(-50vw, -50vh) translate(200px, 160px) scale(2); /* 중앙 이동과 확대 */
+  }
+}
+
+@keyframes reverseScaleAndCenter4 {
+  from {
+    transform: translate(-50vw, -50vh) translate(200px, 160px) scale(2); /* 확대 상태에서 시작 */
+  }
+  to {
+    transform: translate(0, 0) scale(1); /* 원래 위치로 돌아감 */
+  }
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fff;
+}
+.pictureCardSquare {
+  position: absolute;
+  width: 178px;
+  height: 204px;
+  background-color: white;
+  box-shadow: 0px 0px 26px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease;
+}
+.pictureContainerSquare {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 150px;
+  height: 150px;
+  background-color: grey;
+}
+.pictureCardLong {
+  position: absolute;
+  width: 162px;
+  height: 258px;
+  background-color: white;
+  box-shadow: 0px 0px 26px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease;
+}
+
+.pictureContainerLong {
+  position: absolute;
+  top: 13.5px;
+  left: 13.5px;
+  width: 135px;
+  height: 192px;
+  background-color: grey;
+}
+#pictureImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#picture1 {
+  top: 80px;
+  left: 100px;
+  z-index: 996;
+}
+#picture2 {
+  top: 120px;
+  right: 80px;
+  z-index: 997;
+}
+#picture3 {
+  bottom: 100px;
+  left: 130px;
+  z-index: 998;
+}
+#picture4 {
+  bottom: 80px;
+  right: 100px;
+  z-index: 999;
+}
+
+.cardImage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#picture1:hover {
+  transform: perspective(2500px) rotate(8deg);
+  cursor: pointer;
+}
+#picture2:hover {
+  transform: perspective(2500px) rotate(-8deg);
+  cursor: pointer;
+}
+#picture3:hover {
+  transform: perspective(2500px) rotate(-8deg);
+  cursor: pointer;
+}
+#picture4:hover {
+  transform: perspective(2500px) rotate(8deg);
+  cursor: pointer;
+}
+.letterCard {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 1s;
+}
+
+.letterCard #cardImgInsideL {
+  transform: scaleX(-1);
+}
+
+.letterCard:hover {
+  transform: perspective(2500px) rotate(5deg) translate(125px, 0px);
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+.letterCard:hover .cardFront {
+  transform: rotateY(-160deg);
+}
+
+.letterCard #cardImgFront {
+  opacity: 1;
+}
+.letterCard:hover #cardImgFront {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.letterCard #cardImgInsideL {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.letterCard:hover #cardImgInsideL {
+  opacity: 1;
+  transition: 0.3s;
+  transition-delay: 0.1s;
+}
+
+.cardFront {
+  position: relative;
+  background-color: #fff;
+  width: 250px;
+  height: 350px;
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    30px 0 50px rgba(0, 0, 0, 0.4);
+  transition: 0.6s;
+}
+
+.cardInside {
+  position: absolute;
+  background-color: #fff;
+  width: 250px;
+  height: 350px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+}
